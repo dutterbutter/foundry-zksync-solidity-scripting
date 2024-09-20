@@ -85,7 +85,7 @@ contract NFTTest is Test {
         // Mint an NFT, sending eth to the contract
         Receiver receiver = new Receiver();
         address payable payee = payable(address(65539));
-        
+
         uint256 priorPayeeBalance = payee.balance;
         nft.mintTo{value: nft.MINT_PRICE()}(address(receiver));
         // Check that the balance of the contract is correct
