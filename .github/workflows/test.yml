@@ -20,26 +20,26 @@ jobs:
         with:
           submodules: recursive
 
-      - name: Install Foundry
-        uses: foundry-rs/foundry-toolchain@v1
-        with:
-          version: nightly
+      - name: download binaries
+        run: |
+          wget -qc https://github.com/matter-labs/foundry-zksync/releases/download/nightly/foundry_nightly_linux_amd64.tar.gz -O - | tar -xz
+          ./forge -V && ./cast -V
 
       - name: Show Forge version
         run: |
-          forge --version
+          ./forge --version
 
       - name: Run Forge fmt
         run: |
-          forge fmt --check
+          ./forge fmt --check
         id: fmt
 
       - name: Run Forge build
         run: |
-          forge build --sizes
+          ./forge build --sizes --zksync
         id: build
 
       - name: Run Forge tests
         run: |
-          forge test -vvv
+          ./forge test --zksync -vvv
         id: test

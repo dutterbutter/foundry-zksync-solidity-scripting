@@ -3,4 +3,9 @@ src = "src"
 out = "out"
 libs = ["lib"]
 
+[rpc_endpoints]
+ZKsyncSepoliaTestnet = "https://api-sepolia-era.zksync.network/api"
+
+[etherscan]
+zksync-sepolia = { key = "XUMHCVIB9AASH9P6CN7T1WHZ4V874RFFGQ", url = "https://api-sepolia-era.zksync.network/api" }
 # See more config options https://github.com/foundry-rs/foundry/blob/master/crates/config/README.md#all-options
