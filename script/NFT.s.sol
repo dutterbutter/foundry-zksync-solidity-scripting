@@ -1,5 +1,6 @@
 // SPDX-License-Identifier: UNLICENSED
 pragma solidity ^0.8.13;
+
 import {Script} from "forge-std/Script.sol";
 import {NFT} from "../src/NFT.sol";
 
@@ -9,7 +10,7 @@ contract MyScript is Script {
         vm.startBroadcast(deployerPrivateKey);
 
         NFT nft = new NFT("NFT_tutorial", "TUT", "baseUri");
-        
+
         vm.stopBroadcast();
     }
 }
