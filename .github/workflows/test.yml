@@ -56,4 +56,4 @@ jobs:
 
       - name: Test deploy
         run: |
-          forge script script/NFT.s.sol:MyScript --rpc-url=http://127.0.0.1:8011
+          forge script script/NFT.s.sol:MyScript --rpc-url=http://127.0.0.1:8011 -g 50000
