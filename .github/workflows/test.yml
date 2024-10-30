@@ -40,7 +40,7 @@ jobs:
       - name: Run Era Test Node
         uses: dutterbutter/era-test-node-action@db/update-for-evm-usage
         with:
-          mode: 'fork'
+          mode: 'run'
           showCalls: 'user'
           showStorageLogs: 'read'
           showVmDetails: 'all'
