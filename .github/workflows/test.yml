@@ -34,5 +34,27 @@ jobs:
 
       - name: Run Forge build
         run: |
-          forge build --sizes --zksync
+          forge build 
         id: build
+
+      - name: Run Era Test Node
+        uses: dutterbutter/era-test-node-action@db/update-for-evm-usage
+        with:
+          mode: 'run'
+          showCalls: 'user'
+          showStorageLogs: 'read'
+          showVmDetails: 'all'
+          showGasDetails: 'all'
+          resolveHashes: 'true'
+          debugMode: 'true'
+          devSystemContracts: 'local'
+          emulateEvm: 'true'
+          log: 'info'
+          logFilePath: 'era_test_node.log'
+          target: 'x86_64-unknown-linux-gnu'
+          releaseTag: 'latest'
+          chainId: '260'
+
+      - name: Test deploy
+        run: |
+          forge script script/NFT.s.sol:MyScript --rpc-url=http://127.0.0.1:8011 -g 50000
