@@ -53,6 +53,7 @@ jobs:
           logFilePath: 'era_test_node.log'
           target: 'x86_64-unknown-linux-gnu'
           releaseTag: 'latest'
+          chainId: '260'
 
       - name: Test deploy
         run: |
